@@ -90,5 +90,6 @@ class DayOne {
 
     // The different between
     // Arraylist is dynamic array that can grow and shrink.
-    // allows modifications, such as adding, removing, or updating elements.
+    // Mutablelist is allows modifications, such as adding, removing, or updating elements.
+
 }
