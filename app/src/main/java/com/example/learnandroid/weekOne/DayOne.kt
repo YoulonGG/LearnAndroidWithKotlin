@@ -87,4 +87,8 @@ class DayOne {
     )
 
     val mutablemap = mutableMapOf("Math" to 50, "Khmer" to 100, "Biology" to 75)
+
+    // The different between
+    // Arraylist is dynamic array that can grow and shrink.
+    // allows modifications, such as adding, removing, or updating elements.
 }
