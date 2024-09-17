@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import com.example.learnandroid.weekTwo.Week2DayOne
 import com.example.learnandroid.weekOne.DayOne
 import com.example.learnandroid.weekTwo.Week2DayTwo
+import com.example.learnandroid.weekTwo.Week2DayTwo.Direction.Down.move
 
 class MainActivity : ComponentActivity() {
 
@@ -113,6 +114,10 @@ class MainActivity : ComponentActivity() {
 //        Log.e("", "The color is ${traffic.getColor()} for ${traffic.getDuration()} second")
 
 
+        val direction = move(Week2DayTwo.Direction.Left)
+        Log.e("",  "The direction is $direction")
+
+
         //Using sealed class
         val circle: Week2DayTwo.Shape = Week2DayTwo.Shape.Circle(5.0)
         val rectangle1: Week2DayTwo.Shape = Week2DayTwo.Shape.Rectangle(4.0, 6.0)
@@ -122,10 +127,7 @@ class MainActivity : ComponentActivity() {
 
 
         val rectangle2 = Week2DayTwo.MathCalculation.PerimeterOfRectangle(10.0,15.0)
-        Log.e("", "${rectangle2.result()}")
-
-
-
+//        Log.e("", "${rectangle2.result()}")
 
 
         enableEdgeToEdge()

@@ -1,6 +1,7 @@
 package com.example.learnandroid.weekTwo
 
 import android.health.connect.datatypes.units.Length
+import android.util.Log
 
 class Week2DayTwo {
 
@@ -10,22 +11,23 @@ class Week2DayTwo {
     data object Loading : Result()
 
 
-    sealed class Direction
+    sealed class Direction {
 
-    class Up : Direction()
-    class Down : Direction()
-    class Left : Direction()
-    class Right : Direction()
+        data object Up : Direction()
+        data object Down : Direction()
+        data object Left : Direction()
+        data object Right : Direction()
 
-    fun move(direction: Direction) {
-        when (direction) {
-            is Down -> "Go down"
-            is Left -> "Go Left"
-            is Right -> "Go Right"
-            is Up -> "Go Up"
+        fun move(direction: Direction): String {
+            return when (direction){
+                is Down -> "Go Down"
+                is Left -> "Go Left"
+                is Right -> "Go Right"
+                is Up -> "Go Up"
+            }
         }
-    }
 
+    }
 
     sealed class Shape {
         data class Circle(val radius: Double) : Shape()
