@@ -142,10 +142,8 @@ class MainActivity : ComponentActivity(), Week2DayThree.NetworkStateListener by 
 //        Log.e("", "$result7")
 //        Log.e("", "$result8")
 
-        val result2 = week2day3.test("John", " Youlong") {
-            a, b -> a + b
-        }
-//        Log.e("", result2)
+        val result2 = week2day3.test("John", " Youlong") { a, b -> a + b }
+//        Log.e("", result12)
 
 //        val result3 = week2day3.performOperation{
 //            Log.e("","Perform operation...")
@@ -164,8 +162,16 @@ class MainActivity : ComponentActivity(), Week2DayThree.NetworkStateListener by 
             println("Hello Bro")
         }
 
-        observeNetworkState(context = this, lifecycleOwner = this)
+//        val result9 = week2day3.test1("John", "Youlong") { A,B -> A + B }
+        week2day3.performOperation {
+            Log.e("","Operating......")
+
+        }
+//        Log.e("", "$result10")
+
+//        observeNetworkState(context = this, lifecycleOwner = this)
 
         enableEdgeToEdge()
     }
 }
+

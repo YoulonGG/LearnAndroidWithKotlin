@@ -18,10 +18,21 @@ class Week2DayThree {
 
     //Inline Function is the function compiler takes the code inside the inline function
     // and inserts it directly into the place where the function is called
+
+    //Example
+    //if i have inline function with parameter and a block of code.
+    // so when i call this function it call all together
     inline fun performOperation(operation: () -> Unit) {
-        println("Before operation")
-//        operation()  // This will be replaced with the actual lambda passed
-        println("After operation")
+        Log.e("","Before operation")
+        operation()
+        Log.e("","After operation")
+
+    }
+
+    inline fun test1(a: String, b: String, strTest: (String, String) -> String, operation: () -> Unit): String {
+        println("This is inline function!")
+        operation()
+        return strTest(a, b)
     }
 
     inline fun calculate(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
@@ -42,7 +53,6 @@ class Week2DayThree {
         func()
         return 2*a
     }
-
     //inline value class
     @JvmInline
     value class Name(val value: String)
