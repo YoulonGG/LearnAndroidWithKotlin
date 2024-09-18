@@ -6,10 +6,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import com.example.learnandroid.weekTwo.Week2DayOne
 import com.example.learnandroid.weekOne.DayOne
+import com.example.learnandroid.weekTwo.Week2DayThree
 import com.example.learnandroid.weekTwo.Week2DayTwo
 import com.example.learnandroid.weekTwo.Week2DayTwo.Direction.Down.move
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), Week2DayThree.NetworkStateListener by Week2DayThree.NetworkStateHandler(){
 
     private val dayOne = DayOne()
     private val week2Day2 = Week2DayTwo()
@@ -115,7 +116,7 @@ class MainActivity : ComponentActivity() {
 
 
         val direction = move(Week2DayTwo.Direction.Left)
-        Log.e("",  "The direction is $direction")
+//        Log.e("",  "The direction is $direction")
 
 
         //Using sealed class
@@ -129,6 +130,41 @@ class MainActivity : ComponentActivity() {
         val rectangle2 = Week2DayTwo.MathCalculation.PerimeterOfRectangle(10.0,15.0)
 //        Log.e("", "${rectangle2.result()}")
 
+
+        //Inline Function
+        val week2day3 = Week2DayThree()
+        val result1 = week2day3.calculate(10,3) { a, b -> a + b }
+        val result6 = week2day3.calculate(9,5) { a, b -> a * b }
+        val result7 = week2day3.calculate(2,50) { a, b -> a / b }
+        val result8 = week2day3.calculate(25,80) { a, b -> a - b }
+//        Log.e("", "$result1")
+//        Log.e("", "$result6")
+//        Log.e("", "$result7")
+//        Log.e("", "$result8")
+
+        val result2 = week2day3.test("John", " Youlong") {
+            a, b -> a + b
+        }
+//        Log.e("", result2)
+
+//        val result3 = week2day3.performOperation{
+//            Log.e("","Perform operation...")
+//        }
+//        Log.e("", "$result3")
+
+
+        val result4 = week2day3.name.value
+//        Log.e("" , result4)
+
+//        val result5 = week2day3.Pass
+        val result5= Week2DayThree.Password("You can access this!!")
+//        Log.e("", "$result5")
+
+        week2day3.performOperation {
+            println("Hello Bro")
+        }
+
+        observeNetworkState(context = this, lifecycleOwner = this)
 
         enableEdgeToEdge()
     }
