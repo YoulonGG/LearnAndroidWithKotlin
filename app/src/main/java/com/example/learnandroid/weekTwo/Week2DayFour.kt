@@ -1,10 +1,18 @@
 package com.example.learnandroid.weekTwo
 
 import android.util.Log
-
 class Week2DayFour {
 
-//    val data by lazy { "Name" } //var data by lazy { "" }
+
+    //lazy delegation in Kotlin is designed to defer the initialization of a property
+    // until it is actually accessed for the first time
+    //Lazy delegation must assign values
+    val userName: String by lazy { "Youlong" }
+    val phone: Int by lazy { 93383965 }
+
+    val name: String?= null //Declared, Initialized and memory allocated
+//    var userName: String = "" //Declared, Initialized and memory allocated
+    val age: Int = 0  //Declared, Initialized and memory allocated
 //    val data = "Name"
     //const val data = "Name"
     //var data = "NAme"
@@ -15,8 +23,33 @@ class Week2DayFour {
     //We use val instead of var because lazy delegation can implement only one time and remain immutable
     //
 
+    //Property delegation
+    class ComputationExample {
 
-    //Delegation
+        private val item by lazy { "Apple" }
+
+        fun printLazy() {
+            Log.e("","Item Value: $item")
+        }
+
+        val lazyIntValue by lazy {
+            Log.e("","Computing the integer value...")
+            42 * 2
+        }
+    }
+
+    class Person {
+        val person: String by lazy {
+            val age = 21
+            val name = "John Youlong"
+            Log.e("", "Initialize Name Age...")
+            "Name: $name, Age: $age"
+        }
+    }
+
+
+
+    //Class Delegation
     interface Car {
         val model: String
         val color: String
@@ -24,6 +57,11 @@ class Week2DayFour {
         val inStock: Boolean
         fun driving(safeDrive: String)
 
+    }
+
+    //Lazy delegation
+    class Motor(private val car: Car) {
+        val model by lazy { car.model }
     }
 
     //Implement the Car interface
@@ -46,6 +84,5 @@ class Week2DayFour {
     class Nissan : Car by BMW() {
         val speed = 1000
     }
-
 
 }

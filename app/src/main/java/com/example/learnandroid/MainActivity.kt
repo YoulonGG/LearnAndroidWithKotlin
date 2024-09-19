@@ -19,6 +19,10 @@ class MainActivity : ComponentActivity(){
     private val dayOne = DayOne()
     private val week2Day2 = Week2DayTwo()
 
+    private val userName: String by lazy { "Youlong" }
+    private val userID: Int by lazy { 4813 }
+    private val userPosition: String by lazy { "Android Internship" }
+
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -178,20 +182,35 @@ class MainActivity : ComponentActivity(){
 
         val carA = Week2DayFour.BMW()
         val carB = Week2DayFour.Nissan()
-        Log.e("", """
-            |BMW Car
-            |Model   : ${carA.model} 
-            |Year    : ${carA.year}
-            |Color   : ${carA.color}
-            |InStock : ${carA.inStock} """.trimMargin())
-        Log.e("", """
-            |===========
-            |Nissan Car
-            |Model   : ${carB.model} 
-            |Year    : ${carB.year}
-            |Color   : ${carB.color}
-            |Speed   : ${carB.speed}
-            |InStock : ${carB.inStock} """.trimMargin())
+//        Log.e("", """
+//            |BMW Car
+//            |Model   : ${carA.model}
+//            |Year    : ${carA.year}
+//            |Color   : ${carA.color}
+//            |InStock : ${carA.inStock} """.trimMargin())
+//        Log.e("", """
+//            |===========
+//            |Nissan Car
+//            |Model   : ${carB.model}
+//            |Year    : ${carB.year}
+//            |Color   : ${carB.color}
+//            |Speed   : ${carB.speed}
+//            |InStock : ${carB.inStock} """.trimMargin())
+
+
+        val classDelegation = Week2DayFour.ComputationExample()
+//        Log.e("", "${classDelegation.lazyIntValue}")
+
+        val lazy = Week2DayFour.ComputationExample()
+//        lazy.printLazy()
+
+        val person = Week2DayFour.Person()
+//        Log.e("", person.person)
+
+
+        Log.e("", "Username is : $userName")
+        Log.e("", "User ID is  : $userID")
+        Log.e("", "Position is : $userPosition")
 
 
 
