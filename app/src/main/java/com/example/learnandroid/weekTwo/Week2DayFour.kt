@@ -4,8 +4,19 @@ import android.util.Log
 
 class Week2DayFour {
 
-    //Delegation
+//    val data by lazy { "Name" } //var data by lazy { "" }
+//    val data = "Name"
+    //const val data = "Name"
+    //var data = "NAme"
 
+
+    //Class delegation use (by) key word
+    //property delegation use (lazy) key word
+    //We use val instead of var because lazy delegation can implement only one time and remain immutable
+    //
+
+
+    //Delegation
     interface Car {
         val model: String
         val color: String
@@ -29,6 +40,8 @@ class Week2DayFour {
         override val model: String
             get() = "BMW M5"
     }
+
+    class Mercedes : Car by BMW()
 
     class Nissan : Car by BMW() {
         val speed = 1000
