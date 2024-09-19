@@ -1,20 +1,25 @@
 package com.example.learnandroid
 
+import android.app.Person
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import com.example.learnandroid.weekTwo.Week2DayOne
 import com.example.learnandroid.weekOne.DayOne
+import com.example.learnandroid.weekTwo.Week2DayFour
 import com.example.learnandroid.weekTwo.Week2DayThree
 import com.example.learnandroid.weekTwo.Week2DayTwo
 import com.example.learnandroid.weekTwo.Week2DayTwo.Direction.Down.move
 
-class MainActivity : ComponentActivity(), Week2DayThree.NetworkStateListener by Week2DayThree.NetworkStateHandler(){
+class MainActivity : ComponentActivity(){
 
     private val dayOne = DayOne()
     private val week2Day2 = Week2DayTwo()
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -158,18 +163,38 @@ class MainActivity : ComponentActivity(), Week2DayThree.NetworkStateListener by 
         val result5= Week2DayThree.Password("You can access this!!")
 //        Log.e("", "$result5")
 
-        week2day3.performOperation {
-            println("Hello Bro")
-        }
+//        week2day3.performOperation {
+//            println("Hello Bro")
+//        }
 
 //        val result9 = week2day3.test1("John", "Youlong") { A,B -> A + B }
-        week2day3.performOperation {
-            Log.e("","Operating......")
-
-        }
+//        week2day3.performOperation {
+//            Log.e("","Operating......")
+//        }
 //        Log.e("", "$result10")
 
 //        observeNetworkState(context = this, lifecycleOwner = this)
+
+
+        val carA = Week2DayFour.BMW()
+        val carB = Week2DayFour.Nissan()
+        Log.e("", """
+            |BMW Car
+            |Model   : ${carA.model} 
+            |Year    : ${carA.year}
+            |Color   : ${carA.color}
+            |InStock : ${carA.inStock} """.trimMargin())
+        Log.e("", """
+            |===========
+            |Nissan Car
+            |Model   : ${carB.model} 
+            |Year    : ${carB.year}
+            |Color   : ${carB.color}
+            |Speed   : ${carB.speed}
+            |InStock : ${carB.inStock} """.trimMargin())
+
+
+
 
         enableEdgeToEdge()
     }
