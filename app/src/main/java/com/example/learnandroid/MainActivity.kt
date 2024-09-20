@@ -227,13 +227,27 @@ class MainActivity : ComponentActivity(){
         }
 
         val extensionPerson = Me("Youlong", 21, "Cambodia")
-        Log.e("TAG", "" +
-                "${extensionPerson.name} " +
-                "${extensionPerson.isAdult()} " +
-                extensionPerson.country
-        )
+//        Log.e("TAG", "" +
+//                "${extensionPerson.name} " +
+//                "${extensionPerson.isAdult()} " +
+//                extensionPerson.country
+//        )
 
+        //Using Inline Function
+//        week2DayFive.inlineFunction("John", "Youlong")
 
+        val inline1 = week2DayFive.runOperation(10,10) {a, b -> a / b}
+//        Log.e("", "$inline1")
+
+        week2DayFive.person("Youlong", 21) {
+            Thread.sleep(3000)
+            Log.e("", "Upload Information.....")
+        }
+
+//        week2DayFive.measureTime {
+//            Log.e("", "Loading....")
+//            Thread.sleep(5000)
+//        }
 
         enableEdgeToEdge()
     }
