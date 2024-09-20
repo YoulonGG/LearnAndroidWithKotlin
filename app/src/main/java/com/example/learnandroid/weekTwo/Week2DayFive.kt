@@ -1,7 +1,6 @@
 package com.example.learnandroid.weekTwo
 
 import android.util.Log
-import kotlin.math.log
 
 class Week2DayFive {
 
@@ -38,13 +37,13 @@ class Week2DayFive {
         return operation(a, b)
     }
 
-    inline fun person(name: String, age: Int, operation: () -> Int) {
+    inline fun person(name: String, age: Int, operation: () -> Unit) {
         val startTime = System.currentTimeMillis()
         operation()
+        Log.e("", "Name: $name")
+        Log.e("", "Age : $age")
         val endTime = System.currentTimeMillis()
         Log.e("","Execution time: ${endTime - startTime} ms")
-        Log.e("", name)
-        Log.e("", age.toString())
     }
 
     inline fun measureTime(block: () -> Unit) {
@@ -54,5 +53,43 @@ class Week2DayFive {
         Log.e("","Execution time: ${endTime - startTime} ms")
     }
 
+    // Inline function is like we create something to load while executing the block of code in the body
+    //this way faster than we create another function to do it
 
+
+    //We use inline function for small and frequently called function
+    //We use non-inline fun for larger and complex function
+    inline fun doctor(
+        doctorName: String, doctorID: Int, doctorDepartment: String,
+        doctorAvailable: Boolean, block: (String) -> Unit
+        ) {
+        block("Loading name...")
+        Log.e("","Doctor Name: $doctorName")
+        block("Loading department...")
+        Log.e("","Department: $doctorDepartment")
+        block("Loading ID")
+        Log.e("","Doctor ID: $doctorID")
+        block("Loading appointment...")
+        Log.e("","Doctor Available: $doctorAvailable")
+    }
+
+    //No-inline function
+    fun doctor1(
+        doctorName: String,
+        doctorID: Int,
+        doctorDepartment: String,
+        doctorAvailable: Boolean,
+    ) {
+//        block("Loading name...")
+        Log.e("","Doctor Name: $doctorName")
+//        block("Loading department...")
+        Log.e("","Department: $doctorDepartment")
+//        block("Loading ID")
+        Log.e("","Doctor ID: $doctorID")
+//        block("Loading appointment...")
+        Log.e("","Doctor Available: $doctorAvailable")
+    }
+
+    //inline and non-inline functions in Kotlin is how they handle function calls,
+    // but their behavior in terms of output and logic remains the same.
 }

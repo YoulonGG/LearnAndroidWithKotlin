@@ -1,9 +1,7 @@
 package com.example.learnandroid
 
-import android.app.Person
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
@@ -239,15 +237,31 @@ class MainActivity : ComponentActivity(){
         val inline1 = week2DayFive.runOperation(10,10) {a, b -> a / b}
 //        Log.e("", "$inline1")
 
-        week2DayFive.person("Youlong", 21) {
-            Thread.sleep(3000)
-            Log.e("", "Upload Information.....")
-        }
+//        week2DayFive.person("Youlong", 21) {
+//            Log.e("", "Upload Information.....")
+//            Thread.sleep(3000)
+//        }
 
 //        week2DayFive.measureTime {
 //            Log.e("", "Loading....")
 //            Thread.sleep(5000)
 //        }
+
+//        week2DayFive.doctor(
+//            "Youlong",
+//            4813,
+//            "Dentist",
+//            true) { message ->
+//            Log.e("", message)
+//            Thread.sleep(5000)
+//        }
+
+            week2DayFive.doctor1(
+            "Youlong",
+            4813,
+            "Dentist",
+
+            true)
 
         enableEdgeToEdge()
     }
