@@ -92,4 +92,24 @@ class Week2DayFive {
 
     //inline and non-inline functions in Kotlin is how they handle function calls,
     // but their behavior in terms of output and logic remains the same.
+
+    //Let
+    //We use let with nullable object
+    //Use let to check if properties is null or not,
+    // if it still null the let block will not execute anything
+    private var userName: String? = null
+    private var age: Int? = null
+    private var userID: Int? = null
+    private var isSingle: Boolean? = null
+    fun letFunction() {
+        userName = "Youlong"
+        //The age properties is null so it will not execute
+        age = null
+        userID = 4813
+        isSingle = false
+        userName?.let { Log.e("", "Username: $it") }
+        age?.let { Log.e("", "Age: $it") }
+        userID?.let { Log.e("", "User ID: $it") }
+        isSingle?.let { Log.e("", "User is single: $it") }
+    }
 }

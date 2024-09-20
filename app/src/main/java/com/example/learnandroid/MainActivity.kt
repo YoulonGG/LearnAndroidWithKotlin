@@ -2,6 +2,7 @@ package com.example.learnandroid
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
@@ -13,6 +14,7 @@ import com.example.learnandroid.weekTwo.Week2DayFour
 import com.example.learnandroid.weekTwo.Week2DayThree
 import com.example.learnandroid.weekTwo.Week2DayTwo
 import com.example.learnandroid.weekTwo.Week2DayTwo.Direction.Down.move
+import kotlin.math.log
 
 class MainActivity : ComponentActivity(){
 
@@ -256,12 +258,15 @@ class MainActivity : ComponentActivity(){
 //            Thread.sleep(5000)
 //        }
 
-            week2DayFive.doctor1(
-            "Youlong",
-            4813,
-            "Dentist",
+//            week2DayFive.doctor1(
+//            "Youlong",
+//            4813,
+//            "Dentist",
+//
+//            true)
 
-            true)
+
+        week2DayFive.letFunction()
 
         enableEdgeToEdge()
     }
