@@ -9,6 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import com.example.learnandroid.weekTwo.Week2DayOne
 import com.example.learnandroid.weekOne.DayOne
+import com.example.learnandroid.weekTwo.Week2DayFive
+import com.example.learnandroid.weekTwo.Week2DayFive.Me
 import com.example.learnandroid.weekTwo.Week2DayFour
 import com.example.learnandroid.weekTwo.Week2DayThree
 import com.example.learnandroid.weekTwo.Week2DayTwo
@@ -18,6 +20,7 @@ class MainActivity : ComponentActivity(){
 
     private val dayOne = DayOne()
     private val week2Day2 = Week2DayTwo()
+    val week2DayFive = Week2DayFive()
 
     private val userName: String by lazy { "Youlong" }
     private val userID: Int by lazy { 4813 }
@@ -207,15 +210,34 @@ class MainActivity : ComponentActivity(){
         val person = Week2DayFour.Person()
 //        Log.e("", person.person)
 
+        //Lazy delegation
+//        Log.e("", "Username is : $userName")
+//        Log.e("", "User ID is  : $userID")
+//        Log.e("", "Position is : $userPosition")
 
-        Log.e("", "Username is : $userName")
-        Log.e("", "User ID is  : $userID")
-        Log.e("", "Position is : $userPosition")
 
+        val dog = Week2DayFive.Dog("Bull Dog")
+//        week2DayFive.makeSound(dog)
+
+        fun Me.isAdult(): Boolean {
+            return age >= 18
+        }
+        fun Me.isFromCambodia(): Boolean {
+            return true
+        }
+
+        val extensionPerson = Me("Youlong", 21, "Cambodia")
+        Log.e("TAG", "" +
+                "${extensionPerson.name} " +
+                "${extensionPerson.isAdult()} " +
+                extensionPerson.country
+        )
 
 
 
         enableEdgeToEdge()
     }
 }
+
+
 

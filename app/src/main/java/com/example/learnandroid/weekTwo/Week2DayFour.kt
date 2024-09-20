@@ -38,7 +38,7 @@ class Week2DayFour {
         }
     }
 
-    class Person {
+    open class Person {
         val person: String by lazy {
             val age = 21
             val name = "John Youlong"
