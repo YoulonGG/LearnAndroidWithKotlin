@@ -2,7 +2,6 @@ package com.example.learnandroid
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
@@ -11,16 +10,17 @@ import com.example.learnandroid.weekOne.DayOne
 import com.example.learnandroid.weekTwo.Week2DayFive
 import com.example.learnandroid.weekTwo.Week2DayFive.Me
 import com.example.learnandroid.weekTwo.Week2DayFour
+import com.example.learnandroid.weekTwo.Week2DaySix
 import com.example.learnandroid.weekTwo.Week2DayThree
 import com.example.learnandroid.weekTwo.Week2DayTwo
 import com.example.learnandroid.weekTwo.Week2DayTwo.Direction.Down.move
-import kotlin.math.log
 
 class MainActivity : ComponentActivity(){
 
     private val dayOne = DayOne()
     private val week2Day2 = Week2DayTwo()
-    val week2DayFive = Week2DayFive()
+    private val week2DayFive = Week2DayFive()
+    private val week2DaySix = Week2DaySix()
 
     private val userName: String by lazy { "Youlong" }
     private val userID: Int by lazy { 4813 }
@@ -265,8 +265,90 @@ class MainActivity : ComponentActivity(){
 //
 //            true)
 
+        //Use let scope function
+//        week2DayFive.letFunction()
 
-        week2DayFive.letFunction()
+
+        //Use Also Scope Function
+//        val alsoScope = mutableListOf(10, 2, 3).also {
+//            Log.e("", "The list : $it")
+//        }.also {
+//            it.add(4)
+//            it.add(66)
+//            it.add(9)
+//            Log.e("", "Adding new value to list...")
+//            Thread.sleep(3000)
+//        }
+//        Log.e("", "$alsoScope")
+//        Week2DaySix.Me(
+//            "Youlong",
+//            21,
+//            "Android Intern",
+//            true
+//            ).also {
+//                Log.e("", "Information is loading...")
+//                Thread.sleep(3000)
+//                Log.e("", "$it")
+//        }.also {
+//            it.age += 1
+//            Log.e("", "Updating Age....")
+//            Thread.sleep(3000)
+//            Log.e("", "$it")
+//        }.also {
+//            Log.e("", "Thank you!")
+//        }
+
+        //Using Apply, Also and Let together in Scope Function
+//        Week2DaySix.Employee()
+//            //Use apply to add value
+//            .apply {
+//            name = "Youlong"
+//            id = 4813
+//            startDate = null
+//            salary = 1200
+//            isMarried = null
+//
+//            //Use let to check is some properties is null
+//            name?.let { Log.e("", it) }
+//            id?.let { Log.e("", "$it") }
+//            startDate?.let { Log.e("", "$it") }
+//            salary?.let { Log.e("", "$it") }
+//            isMarried?.let { Log.e("", "$it") }
+//
+//            //Use also to add some side action
+//        }.also {
+//            Log.e("", "Employee Information")
+//            Thread.sleep(3000)
+//            Log.e("", "$it")
+//        }
+//            .let {
+//            Log.e("", "Checking if some value is null...")
+//            Thread.sleep(3000)
+//            Log.e("", "${it.name} ${it.id} ${it.startDate} ${it.salary} ${it.isMarried}")
+//        }
+
+//        Week2DaySix.Motor().apply {
+//            motorName = "Honda Dream"
+//            motorModel = "Honda"
+//            motorYear = 2025
+//            motorColor = "Black"
+//            Log.e("","$motorName")
+//            Log.e("","$motorModel")
+//            Log.e("","$motorYear")
+//            Log.e("","$motorColor")
+//        }.also {
+//            Log.e("", "Ending...")
+//        }
+
+        //Using Run Scope Function
+        val personInfo =  Week2DaySix.Person1("Youlong", 21)
+        personInfo.personInfo()
+
+        Week2DaySix.Person2(null, null, null).run {
+            name?.run {
+
+            }
+        }
 
         enableEdgeToEdge()
     }

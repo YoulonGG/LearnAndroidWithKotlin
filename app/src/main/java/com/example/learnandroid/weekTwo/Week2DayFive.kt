@@ -1,6 +1,7 @@
 package com.example.learnandroid.weekTwo
 
 import android.util.Log
+import kotlin.math.log
 
 class Week2DayFive {
 
@@ -103,7 +104,7 @@ class Week2DayFive {
     private var isSingle: Boolean? = null
     fun letFunction() {
         userName = "Youlong"
-        //The age properties is null so it will not execute
+        //The age property is null so it will not execute
         age = null
         userID = 4813
         isSingle = false
@@ -112,4 +113,12 @@ class Week2DayFive {
         userID?.let { Log.e("", "User ID: $it") }
         isSingle?.let { Log.e("", "User is single: $it") }
     }
+
+
+
+
+
+
+
+
 }
