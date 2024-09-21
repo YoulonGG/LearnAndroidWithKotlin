@@ -2,6 +2,7 @@ package com.example.learnandroid
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
@@ -350,6 +351,13 @@ class MainActivity : ComponentActivity(){
             }
         }
 
+        val withPerson = Week2DaySix.Person("John", 30, "123 Main St")
+        with(withPerson) {
+            name = "Youlong"
+            age = 21
+            address = "Phnom Penh"
+        }
+        Log.e("", "$withPerson")
         enableEdgeToEdge()
     }
 }
