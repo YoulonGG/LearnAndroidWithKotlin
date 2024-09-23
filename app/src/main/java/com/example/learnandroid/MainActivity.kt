@@ -380,6 +380,14 @@ class MainActivity : ComponentActivity(){
 //
 //        }
 
+        //        val withPerson = Week2DaySix.Person("John", 30, "123 Main St")
+//        with(withPerson) {
+//            name = "Youlong"
+//            age = 21
+//            address = "Phnom Penh"
+//        }
+//        Log.e("", "$withPerson")
+
         //Using sealed class
         fun success() {
             Log.e("", "$userName is logged in successful.")
@@ -426,13 +434,7 @@ class MainActivity : ComponentActivity(){
         Log.e("", "${person1.userName} ${person1.age} ${person1.address} ${person1.isSingle}")
         Log.e("", "${person2.userName} ${person2.age} ${person2.address} ${person2.isSingle}")
 
-        val withPerson = Week2DaySix.Person("John", 30, "123 Main St")
-        with(withPerson) {
-            name = "Youlong"
-            age = 21
-            address = "Phnom Penh"
-        }
-        Log.e("", "$withPerson")
+
         enableEdgeToEdge()
     }
 }
