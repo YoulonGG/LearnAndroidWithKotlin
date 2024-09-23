@@ -1,12 +1,15 @@
 package com.example.learnandroid
 
+import android.net.Network
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import com.example.learnandroid.weekTwo.Week2DayOne
 import com.example.learnandroid.weekOne.DayOne
+import com.example.learnandroid.weekThree.Week3DayOne
 import com.example.learnandroid.weekTwo.Week2DayFive
 import com.example.learnandroid.weekTwo.Week2DayFive.Me
 import com.example.learnandroid.weekTwo.Week2DayFour
@@ -341,14 +344,87 @@ class MainActivity : ComponentActivity(){
 //        }
 
         //Using Run Scope Function
-        val personInfo =  Week2DaySix.Person1("Youlong", 21)
-        personInfo.personInfo()
+//        val personInfo =  Week2DaySix.Person1("Youlong", 21)
+//        personInfo.personInfo()
+//
+//        Week2DaySix.Person2(null, null, null).run {
+//            name?.run {
+//
+//            }
+//        }
 
-        Week2DaySix.Person2(null, null, null).run {
-            name?.run {
 
+        //Using With scope function
+//        val user = Week3DayOne.UserAccount(
+//            "Youlong", 4813,
+//            "admin@gmail.com",
+//            false)
+//
+//        Log.e("", "$user").also {
+//            Log.e("","Updating information...")
+//        }
+//        Thread.sleep(3000)
+//
+//        with(user) {
+//            userName = "John Youlong"
+//            id = 9999
+//            email = "long@gmail.com"
+//
+//            if (isLogin) {
+//                isLogin()
+//            } else {
+//                isLogout()
+//            }
+//
+//            showInformation()
+//
+//        }
+
+        //Using sealed class
+        fun success() {
+            Log.e("", "$userName is logged in successful.")
+        }
+        fun failed() {
+            Log.e("", "$userName is logged in failed.")
+        }
+
+        fun checkMessage(message: Week3DayOne.Message) {
+            when (message) {
+                Week3DayOne.Message.IsSuccess -> success()
+                Week3DayOne.Message.IsFail -> Log.e("", "You have failed to logged in!")
+                Week3DayOne.Message.IsError -> Log.e("", "Error!! Try Again")
             }
         }
+//        checkMessage(Week3DayOne.Message.IsError)
+
+        fun checkNetwork(network: Week3DayOne.Network) {
+            when(network) {
+                Week3DayOne.Network.Loading -> Log.e("", "Network is loading...")
+                is Week3DayOne.Network.Failed -> failed()
+                is Week3DayOne.Network.Success -> success()
+            }
+        }
+//        checkNetwork(Week3DayOne.Network.Loading)
+
+        fun checkShape(shape : Week3DayOne.CalculateShape): String {
+            val pi = 3.14
+            return when (shape) {
+                is Week3DayOne.CalculateShape.Circle -> "Circle: ${(shape.radius * shape.radius) * pi }"
+                is Week3DayOne.CalculateShape.Rectangle -> "Rectangle: ${(shape.width + shape.height) * 2}"
+                is Week3DayOne.CalculateShape.Square -> "Side: ${shape.side * shape.side}"
+                Week3DayOne.CalculateShape.NotShape -> "The shape is not valid."
+            }
+        }
+        val shape =  checkShape(Week3DayOne.CalculateShape.Circle(1.2))
+        val rectangle =  checkShape(Week3DayOne.CalculateShape.Rectangle(3.2, 2.5))
+        val square =  checkShape(Week3DayOne.CalculateShape.Square(10.0))
+        val noShape =  checkShape(Week3DayOne.CalculateShape.NotShape)
+        Log.e("", square)
+
+        val person1 = Week3DayOne.Person1
+        val person2 = Week3DayOne.Person2
+        Log.e("", "${person1.userName} ${person1.age} ${person1.address} ${person1.isSingle}")
+        Log.e("", "${person2.userName} ${person2.age} ${person2.address} ${person2.isSingle}")
 
         enableEdgeToEdge()
     }
