@@ -53,7 +53,6 @@ class Week2DaySix {
     //Run Scope Function
     //run can help you group operations,
     // manage nullability safely, and enhance code readability
-    //like Do this, this, and this all together, and give me the result
 //    class Calculation(radius: Int) {
 //        val PI = 3.14
 //        val circle = PI * 2 * radius
@@ -74,6 +73,11 @@ class Week2DaySix {
         val position: String?
 
     )
+
+
+
+
+
 }
 
 
