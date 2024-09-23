@@ -96,7 +96,11 @@ class Week3DayOne {
     //Sealed Class: Use for different states or types with additional data or behavior.
     //Sealed Interface: Use for behaviors with various implementations, while controlling the types.
 
-
+    sealed class Payment{
+        data class Cash(val name: String, val amount: Double) : Payment()
+        data class Banktranfer(val accountHolder: String, val bankNumber: Int) : Payment()
+        data class Wallet(val walletName: String, val walletID: Int) : Payment()
+    }
 
 
 

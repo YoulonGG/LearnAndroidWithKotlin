@@ -450,8 +450,23 @@ class MainActivity : ComponentActivity(){
             Week3DayOne.Network.Success,
             Week3DayOne.Network.Failed,
             Week3DayOne.Network.Loading )
-        listOfMessage.forEach { Log.e("", "$it") }
+//        listOfMessage.forEach { Log.e("", "$it") }
 
+
+        fun checkPayment(payment: Week3DayOne.Payment) {
+            when (payment) {
+                is Week3DayOne.Payment.Banktranfer -> {
+                    Log.e("", "Bank Number : ${payment.bankNumber} ${payment.accountHolder}")
+                }
+                is Week3DayOne.Payment.Cash -> {
+                    Log.e("","${payment.name} ${payment.amount}")
+                }
+                is Week3DayOne.Payment.Wallet -> {
+                    Log.e("", "${payment.walletName} ${payment.walletID}")
+                }
+            }
+        }
+        Log.e("", Week3DayOne.Payment.Banktranfer("John Youlong", 111111).toString())
 
 
 
