@@ -427,12 +427,12 @@ class MainActivity : ComponentActivity(){
         val rectangle =  checkShape(Week3DayOne.CalculateShape.Rectangle(3.2, 2.5))
         val square =  checkShape(Week3DayOne.CalculateShape.Square(10.0))
         val noShape =  checkShape(Week3DayOne.CalculateShape.NotShape)
-        Log.e("", square)
+//        Log.e("", square)
 
         val person1 = Week3DayOne.Person1
         val person2 = Week3DayOne.Person2
-        Log.e("", "${person1.userName} ${person1.age} ${person1.address} ${person1.isSingle}")
-        Log.e("", "${person2.userName} ${person2.age} ${person2.address} ${person2.isSingle}")
+        Log.e("", "Name: ${person1.userName} Age: ${person1.age} Country: ${person1.address} isSingle: ${person1.isSingle}")
+        Log.e("", "Name: ${person2.userName} Age: ${person2.age} Country: ${person2.address} isSingle: ${person2.isSingle}")
 
 
         enableEdgeToEdge()

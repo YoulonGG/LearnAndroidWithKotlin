@@ -72,7 +72,7 @@ class Week3DayOne {
             get() = true
         }
 
-    data object Person2 : PersonInfo by Person1 {
+    data object Person2 : PersonInfo {
         override val userName: String
             get() = "Christiano Ronaldo"
         override val age: Int

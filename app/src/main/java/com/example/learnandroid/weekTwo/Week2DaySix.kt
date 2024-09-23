@@ -14,13 +14,13 @@ class Week2DaySix {
     }.toString()
 
     val alsoScope = mutableListOf(10, 2, 3).also {
-        Log.e("", "The list : $it")
+//        Log.e("", "The list : $it")
     }.also {
         it.add(4)
         it.add(66)
         it.add(9)
-        Log.e("", "Adding new value to list...")
-        Thread.sleep(3000)
+//        Log.e("", "Adding new value to list...")
+//        Thread.sleep(3000)
     }
 
     data class Me(
