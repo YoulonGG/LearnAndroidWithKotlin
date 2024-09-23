@@ -34,6 +34,7 @@ class Week3DayOne {
     }
 
     //Use sealed class wth related subclass
+    //Sealed class is fixed set of subclass
     sealed class Message {
         data object IsSuccess : Message()
         data object IsFail : Message()
@@ -41,9 +42,9 @@ class Week3DayOne {
     }
 
     sealed class Network {
-        data class Success(val success: String): Network()
-        data class Failed(val failed: String): Network()
-        data object Loading : Network()
+        data object Success: Network()
+        data object Failed: Network()
+        data object Loading: Network()
     }
 
     sealed class CalculateShape {
@@ -53,7 +54,8 @@ class Week3DayOne {
         data object NotShape : CalculateShape()
     }
 
-    //Sealed class can contructor but sealed interface can not
+    //Sealed class can contractor but sealed interface can not
+    //Sealed interface can not have data because interface is better in implement
     sealed interface PersonInfo {
         val userName: String
         val age: Int
@@ -82,6 +84,18 @@ class Week3DayOne {
         override val address: String
             get() = "Portugal"
     }
+
+    sealed interface Calculation {
+        data class Add(val value1: Int,val  value2: Int) : Calculation
+        data class Subtract(val value1: Int,val  value2: Int) : Calculation
+        data class Multiply(val value1: Int,val  value2: Int) : Calculation
+        data class Divide(val value1: Int,val  value2: Int) : Calculation
+    }
+
+    //Enum: Use for fixed values without extra data or behavior..
+    //Sealed Class: Use for different states or types with additional data or behavior.
+    //Sealed Interface: Use for behaviors with various implementations, while controlling the types.
+
 
 
 

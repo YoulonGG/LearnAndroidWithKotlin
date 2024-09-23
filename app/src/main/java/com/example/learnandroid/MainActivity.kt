@@ -10,6 +10,7 @@ import androidx.annotation.RequiresApi
 import com.example.learnandroid.weekTwo.Week2DayOne
 import com.example.learnandroid.weekOne.DayOne
 import com.example.learnandroid.weekThree.Week3DayOne
+import com.example.learnandroid.weekThree.Week3DayOne.Calculation
 import com.example.learnandroid.weekTwo.Week2DayFive
 import com.example.learnandroid.weekTwo.Week2DayFive.Me
 import com.example.learnandroid.weekTwo.Week2DayFour
@@ -407,7 +408,7 @@ class MainActivity : ComponentActivity(){
 
         fun checkNetwork(network: Week3DayOne.Network) {
             when(network) {
-                Week3DayOne.Network.Loading -> Log.e("", "Network is loading...")
+                is Week3DayOne.Network.Loading -> Log.e("", "Loading...")
                 is Week3DayOne.Network.Failed -> failed()
                 is Week3DayOne.Network.Success -> success()
             }
@@ -431,8 +432,29 @@ class MainActivity : ComponentActivity(){
 
         val person1 = Week3DayOne.Person1
         val person2 = Week3DayOne.Person2
-        Log.e("", "Name: ${person1.userName} Age: ${person1.age} Country: ${person1.address} isSingle: ${person1.isSingle}")
-        Log.e("", "Name: ${person2.userName} Age: ${person2.age} Country: ${person2.address} isSingle: ${person2.isSingle}")
+//        Log.e("", "Name: ${person1.userName} Age: ${person1.age} Country: ${person1.address} isSingle: ${person1.isSingle}")
+//        Log.e("", "Name: ${person2.userName} Age: ${person2.age} Country: ${person2.address} isSingle: ${person2.isSingle}")
+
+
+        fun operation(operation: Calculation) {
+            when (operation) {
+                is Calculation.Add -> Log.e("", "${operation.value1 + operation.value2}")
+                is Calculation.Divide -> Log.e("", "${operation.value1 / operation.value2}")
+                is Calculation.Multiply -> Log.e("", "${operation.value1 * operation.value2}")
+                is Calculation.Subtract -> Log.e("", "${operation.value1 - operation.value2}")
+            }
+        }
+//        operation(Calculation.Multiply(10,10)).toString()
+
+        val listOfMessage = listOf(
+            Week3DayOne.Network.Success,
+            Week3DayOne.Network.Failed,
+            Week3DayOne.Network.Loading )
+        listOfMessage.forEach { Log.e("", "$it") }
+
+
+
+
 
 
         enableEdgeToEdge()
