@@ -11,6 +11,7 @@ import com.example.learnandroid.weekTwo.Week2DayOne
 import com.example.learnandroid.weekOne.DayOne
 import com.example.learnandroid.weekThree.Week3DayOne
 import com.example.learnandroid.weekThree.Week3DayOne.Calculation
+import com.example.learnandroid.weekThree.Week3DayTwo
 import com.example.learnandroid.weekTwo.Week2DayFive
 import com.example.learnandroid.weekTwo.Week2DayFive.Me
 import com.example.learnandroid.weekTwo.Week2DayFour
@@ -472,9 +473,19 @@ class MainActivity : ComponentActivity(){
 //        Log.e("", Week3DayOne.Payment.Wallet("John Youlong", 45553).toString())
 //        Log.e("", Week3DayOne.Payment.Cash("John Youlong", 10000.0).toString())
 
-        checkPayment(Week3DayOne.Payment.Wallet("L-Crype" , 455562))
+        checkPayment(Week3DayOne.Payment.Wallet("L-Crypt" , 455562))
 
+        val errors = listOf(
+            Week3DayTwo.Error.NetworkError(),
+            Week3DayTwo.Error.DatabaseError(),
+            Week3DayTwo.Error.UnknownError())
+        errors.forEach { Log.e("", it.message) }
 
+        val typeOfCar = listOf(
+            Week3DayTwo.Car.GTR(),
+            Week3DayTwo.Car.M5(),
+            Week3DayTwo.Car.GT())
+        typeOfCar.forEach { Log.e("", it.type) }
 
 
 
