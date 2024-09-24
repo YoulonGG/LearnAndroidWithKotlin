@@ -462,11 +462,17 @@ class MainActivity : ComponentActivity(){
                     Log.e("","${payment.name} ${payment.amount}")
                 }
                 is Week3DayOne.Payment.Wallet -> {
-                    Log.e("", "${payment.walletName} ${payment.walletID}")
+                    Log.e("", """
+                        Wallet Name : ${payment.walletName} 
+                        Wallet ID : ${payment.walletID}""".trimIndent())
                 }
             }
         }
-        Log.e("", Week3DayOne.Payment.Banktranfer("John Youlong", 111111).toString())
+//        Log.e("", Week3DayOne.Payment.Banktranfer("John Youlong", 111111).toString())
+//        Log.e("", Week3DayOne.Payment.Wallet("John Youlong", 45553).toString())
+//        Log.e("", Week3DayOne.Payment.Cash("John Youlong", 10000.0).toString())
+
+        checkPayment(Week3DayOne.Payment.Wallet("L-Crype" , 455562))
 
 
 
